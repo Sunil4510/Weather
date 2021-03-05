@@ -5,13 +5,11 @@ const Weather = () => {
     const [search,setSearch]=useState("solapur");
     useEffect(()=>{
         const fetchApi= async()=>{
-            if(Location.protocol==='http:'){
-            const url = `http://api.openweathermap.org/data/2.5/weather?q=${search}&units=metric&appid=c6fc91b922cea248d23b3c5627e58562`;
+            const url = `https://api.openweathermap.org/data/2.5/weather?q=${search}&units=metric&appid=c6fc91b922cea248d23b3c5627e58562`;
             const res = await fetch(url);
             const resJson = await res.json();
             console.log(resJson);
             setCity(resJson.main);
-            }
         }
         fetchApi();
     },[search]);
